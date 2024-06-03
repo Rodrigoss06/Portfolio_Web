@@ -1,0 +1,37 @@
+---
+import ExperienciaItem from "./ExperienciaItem.astro";
+const EXPERIENCIA = [
+    {
+        "fecha": "agosto de 2022",
+        "titulo": "Inicio en la Programación Web",
+        "detalles": "Realize cursos sobre Javascript, Css, Html y cree mi primera pagina web"
+    },
+    {
+        "fecha": "Diciembre de 2022",
+        "titulo": "Realize cursos gratuitos sobre Desarrollo Web en Freecodecamp",
+        "detalles": "Buscaba otras formas de aprender sin tener que gastar y encontre estos cursos sobre Diseño Web y Algoritmos de JavaScript y estructuras de datos "
+    },
+    {
+        "fecha": "marzo de 2023",
+        "titulo": "Primer año de Ing. de Sistemas en UCSM",
+        "detalles": "Me inscribi en Ing. de Sistemas debido para aprender sobre otras tecnologias y lenguajes de programación aparte del Desarrollo Web"
+    },
+    {
+        "fecha": "Julio de 2023",
+        "titulo": "Inicio de los cursos de Analistas de Datos y Aws",
+        "detalles": "Debido a que las enseñanzas de la Universidad eran genericas, tenian un ritmo lento y habia cursos de relleno, me incribi a estos cursos de pago porque cada me puede abrir puertas a un trabajo significativo ____ARREGLAR_____"
+    }
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+        EXPERIENCIA.map(e=>(
+            <li class="mb-10 ms-4">
+                <ExperienciaItem {...e}/>
+            </li>
+        ))
+    }                  
+    
+    
+</ol>

@@ -1,0 +1,84 @@
+---
+import Github from "../icons/Github.astro";
+import NextJS from "../icons/NextJS.astro";
+import TailwindCSS from "../icons/TailwindCSS.astro";
+import AstroJS from "../icons/AstroJS.astro";
+import Web from "../icons/Web.astro";
+import LinkButton from "./LinkButton.astro";
+import Postgresql from "../icons/Postgresql.astro";
+
+const TAGS ={
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-white text-black",
+    icon: TailwindCSS
+  },
+  ASTRO: {
+    name:"Astro",
+    class:"bg-white text-black",
+    icon: AstroJS
+  },
+  POSTGRESQL: {
+    name:"Postgresql",
+    class:"bg-[#31668F] text-whitw",
+    icon: Postgresql
+  }
+}
+const Proyectos = [
+  {
+    title: "Clon de Spotify",
+    description:
+      "Un clon de la interfaz de Spotify desarrollado con Next.js, Tailwind CSS y Astro. Este proyecto recrea la experiencia de usuario de Spotify, incluyendo funcionalidades como navegación entre secciones, reproducción de música y manejo de listas de reproducción. Perfecto para mostrar habilidades en desarrollo front-end y uso de tecnologías modernas.",
+    link: "https://clon-spotify-astrojs.pages.dev/",
+    github: "https://github.com/Rodrigoss06/Clon-spoty-astrojs",
+    image: "/projects/ClonSpotify.jpg",
+    tags: [TAGS.NEXT,TAGS.TAILWIND,TAGS.ASTRO],
+  },
+  {
+    title: "Search Index de Películas y Videojuegos",
+    description:
+      "Un proyecto de indexación y búsqueda de películas y videojuegos desarrollado con Next.js, Tailwind CSS y PostgreSQL. Este proyecto permite a los usuarios buscar y filtrar títulos de una base de datos extensa, mostrando habilidades en desarrollo full-stack, diseño de interfaces modernas y manejo de bases de datos relacionales.",
+    link: "https://search-index-movies-videogames.pages.dev/",
+    github: "https://github.com/Rodrigoss06/Search-index-movies-videogames",
+    image: "/projects/SearchIndexed.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.POSTGRESQL],
+  },
+];
+---
+
+{
+  Proyectos.map(({title,description,tags,image,link,github}) => (
+    <article class="flex flex-col justify-center items-center bg-gradient-to-br from-[rgb(25,25,25)] to-purple-800/15 p-6 rounded-lg shadow-md mb-16">
+      <h1 class="lg:text-3xl text-2xl font-bold text-white mb-2">
+        {title}
+      </h1>
+      <p class=" lg:text-xl text-gray-400 mb-4">
+        {description}
+      </p>
+      <ul class="flex space-x-2 mb-2 " style="align-self: flex-start;">
+        {tags.map((tag) => (
+          <li>
+            <span class=` text-sm rounded flex gap-2 py-1 px-1 ${tag.class}` ><tag.icon class="size-5"/>{tag.name}</span>
+          </li>
+        ))}
+      </ul>
+      <img src={image} alt={`Imagen de ${title}`} class="w-full h-auto mb-4 rounded shadow-2xl shadow-white/10" />
+      <div class="flex space-x-4 ">
+        <LinkButton href={link}><Web class="lg:size-6 size-4"/>
+          Ver Proyecto</LinkButton>
+       
+        <LinkButton href={github}><Github class="lg:size-6 size-4"/>
+          Ver código fuente
+        </LinkButton>
+        
+      </div>
+      
+    </article>
+  ))
+}
+
