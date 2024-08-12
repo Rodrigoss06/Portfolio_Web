@@ -1,9 +1,11 @@
 ---
 import "@fontsource-variable/onest";
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ParticlesCanvas from "../components/particles/particle-canvas.astro";
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,40 +13,86 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body >
-		<div class="absolute top-0 bottom-0 z-[-2] min-h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-		<Header/>
-		<slot />
-		<Footer/>
-		
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <Header />
+      <slot />
+      <Footer />
+	  <div
+		data-particles
+		class="pointer-events-none absolute inset-0 top-0 z-50 mx-auto w-full max-w-screen-lg"
+	  >
+		<ParticlesCanvas quantity={80} />
+	  </div>
+    </main>
+  </body>
 </html>
-<style is:global>
-	:root {
-		color-scheme: dark;
-	}
-	html {
-		font-family: "Onest Variable" ,system-ui, sans-serif;
-		scroll-behavior: smooth;
-	}
-	body {
-		background: #000;
-		/* display: grid;
+<style>
+  :global(body::before) {
+    position: absolute;
+    content: "";
+
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: -10;
+
+    background-image: url("/bg.svg");
+    background-position-y: top;
+    background-position-x: 40%;
+    background-repeat: no-repeat;
+    background-blend-mode: difference;
+  }
+  [data-particles] {
+    height: 60vh;
+    height: 60lvh;
+  }
+
+  @media (min-width: 540px) {
+    [data-particles] {
+      height: 50vh;
+      height: 50lvh;
+    }
+  }
+
+  @media screen(lg) {
+    :global(body) {
+      background-position-x: 50%;
+    }
+
+    [data-particles] {
+      height: 40vh;
+      height: 40lvh;
+    }
+  }
+  body {
+    color: #908f8d;
+    background: #000;
+    /* display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 56px auto; */
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		position: relative;
-		scroll-behavior: none;
-	}
-	
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    scroll-behavior: none;
+  }
+</style>
+
+<style is:global>
+  strong {
+    color: hsl(47.9, 95.8%, 53.1%);
+  }
+  strong,b {
+    font-weight: 700;
+  }
 </style>

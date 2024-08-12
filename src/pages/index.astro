@@ -17,37 +17,56 @@ import Route from "../icons/Route.astro";
 <Layout title="Portafolio de Rodrigo S.S. - Desarollador web y AWS">
   <main class="px-4">
     <SectionContainer className="py-44">
-      <h1 class="flex gap-2 md:text-5xl lg:text-6xl font-bold text-3xl pb-4 lg:pb-6">
-        Hey, soy Rodrigo <a href="https://www.linkedin.com/in/rodrigo-sucapuca-santamarina-329515211/" target="_blank" class="flex items-center hover:scale-105 transition "><Badge>Disponible para trabajar</Badge></a>
+      <h1 class="flex gap-2 md:text-4xl lg:text-5xl font-bold text-3xl mb-8 lg:mb-12 text-white opacity-90">
+        ¡Hola!, Soy Rodrigo Santamarina
       </h1>
-      <h2 class="lg:text-2xl text-xl opacity-80 text-pretty">
-        Analista de Datos, Desarrollador de AWS y Desarrollador web basado en
-        React, Nextjs y Astro. De Arequipa, Perú
-      </h2>
-      <nav class="mt-8">
-        <ul class="flex gap-4 flex-wrap ">
-          <li><SocialPill href="https://github.com/Rodrigoss06"><Github class="size-4"/>Github</SocialPill></li>
-          <li><SocialPill href="https://www.linkedin.com/in/rodrigo-sucapuca-santamarina-329515211/"><Linkedln class="size-4"/>Linkedln</SocialPill></li>
-          <li><SocialPill href="/"><Gmail class="size-4"/>rodrigo.ss0606@gmail.com</SocialPill></li>
+
+      <h2 class="text-lg sm:text-xl md:text-xl lg:text-2xl opacity-90 text-pretty">
+        Especializado en desarrollo web, pero también apasionado por el desarrollo
+        móvil. Con <b>+2 años de experiencia programando</b>, actualmente me
+        encuentro <strong>en busca activa de un puesto como desarrollador web</strong>.
+    </h2>
+    
+      <nav class="mt-8 flex gap-3">
+        <div
+          class="flex items-center border-r-2 border-[#908f8d] border-solid pr-4"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </div>
+        <ul class="flex gap-4 flex-wrap">
+          <li>
+            <SocialPill href="https://github.com/Rodrigoss06"
+              ><Github class="size-4" />Github</SocialPill>
+          </li>
+          <li>
+            <SocialPill
+              href="https://www.linkedin.com/in/rodrigo-sucapuca-santamarina-329515211/"
+              ><Linkedln class="size-4" />Linkedln</SocialPill>
+          </li>
+          <li>
+            <SocialPill href="/"
+              ><Gmail class="size-4" />rodrigo.ss0606@gmail.com</SocialPill>
+          </li>
         </ul>
       </nav>
     </SectionContainer>
-    <SectionContainer  id="experiencia">
-      <h2 class=" flex gap-3 text-3xl font-semibold mb-6">
-        <Route class="size-12"/> Mi Trayectoria en Programación y Desarrollo Web
+    <SectionContainer id="experiencia">
+      <h2 class="flex gap-3 text-3xl font-semibold mb-6 text-white opacity-85">
+        <Route class="size-12 " /> Mi Trayectoria en Programación y Desarrollo Web
       </h2>
-      <Experiencia/>
+      <Experiencia />
     </SectionContainer>
     <SectionContainer id="proyectos">
-      <h2 class="flex gap-3 mb-8 text-2xl items-center"><Code/>Proyectos TOP</h2>
-      <Projects/>
+      <h2 class="flex gap-3 mb-8 text-2xl items-center text-white opacity-85">
+        <Code /> Proyectos Favoritos
+      </h2>
+      <Projects />
     </SectionContainer>
     <SectionContainer id="sobre-mi">
-      <h2 class="flex gap-3 mb-8 text-2xl items-center">
-        <Profile/>
-        Sobre mi
+      <h2 class="flex gap-3 mb-8 text-2xl items-center text-white opacity-85">
+        <Profile /> Sobre Mí
       </h2>
-      <AboutMe/>
+      <AboutMe />
     </SectionContainer>
   </main>
 </Layout>
